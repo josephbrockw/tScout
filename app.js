@@ -1,39 +1,21 @@
 $(document).ready(function(){
-	//var queryterm
+	var queryterm = 'augustana';
+	var obj;
+
 // Taste Kid
 	function getInfo(callback) {
-		$.getJSON('http://www.tastekid.com/api/similar?q=augustana&k=133714-TalentSc-0C3QNV7I&callback=?', callback);
+		$.getJSON('http://www.tastekid.com/api/similar?q=' + queryterm +'&k=133714-TalentSc-0C3QNV7I&callback=?', callback);
 	}
 	
-	getInfo(function(json) {
-		var obj = json.Similar.Results[3].Name;
-		console.log(obj);
-	});
+	// function getInfo(json) {
+	// 	var obj = json.Similar.Results[3].Name;
+	// 	console.log(obj);
+	// };
 
-// Sound Cloud
-	// function playSound(genre) {
-	// 	SC.get('/tracks', {
-	// 		genres: genre,
-	// 	}, function(tracks) {
-	// 		SC.oEmbed(tracks[0].uri, { auto_play: true}, document.getElementByID('one'));
-	// 	}
-	// 	})
-	// }
-// --------------------- This is initializing well but I don't know how to call information ------------------------------------------------------------------------------------------------
-	// window.onload = function() {
-	// 	SC.initialize({
-	// 		client_id: 'a700e44fe62f56e3f24d08da98104f08'
-	// 	});
-
-	// 	// SC.get()
-
-	
-		
-	// 	SC.get("/groups/55517/tracks", {limit: 1}, function(tracks){
-	// 	  alert("Latest track: " + tracks[0].title);
-	// 	});
-	// }
-
+	// getInfo(function(json) {
+	// 	obj = json.Similar.Results[3].Name;
+	// 	console.log(obj);
+	// });
 
 
 
@@ -65,14 +47,46 @@ $(document).ready(function(){
 	$('#search-form').submit(function(event) {
 		event.preventDefault();
 		$('#search-list').empty();
-		search($('#query').val());
-		console.log('query: ' + $('#query').val());
-	})
+		queryterm = $('#query').val();
+		//search($('#query').val()); // new function which searches every suggestion individually
+		console.log('queryterm: ' + queryterm);
+		getInfo(function(json) {
+			obj = json.Similar.Results[3].Name;
+			console.log(obj);
+		});
+		console.log('testing scope: ' + obj);
+		search(queryterm);
+	});
 	
 
 	
 
 });
+
+// Sound Cloud
+	// function playSound(genre) {
+	// 	SC.get('/tracks', {
+	// 		genres: genre,
+	// 	}, function(tracks) {
+	// 		SC.oEmbed(tracks[0].uri, { auto_play: true}, document.getElementByID('one'));
+	// 	}
+	// 	})
+	// }
+// --------------------- This is initializing well but I don't know how to call information ------------------------------------------------------------------------------------------------
+	// window.onload = function() {
+	// 	SC.initialize({
+	// 		client_id: 'a700e44fe62f56e3f24d08da98104f08'
+	// 	});
+
+	// 	// SC.get()
+
+	
+		
+	// 	SC.get("/groups/55517/tracks", {limit: 1}, function(tracks){
+	// 	  alert("Latest track: " + tracks[0].title);
+	// 	});
+	// }
+
 
 
 // TasteKid API key: 133714-TalentSc-0C3QNV7I
