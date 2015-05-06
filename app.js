@@ -51,9 +51,14 @@ $(document).ready(function(){
 		//search($('#query').val()); // new function which searches every suggestion individually
 		console.log('queryterm: ' + queryterm);
 		getInfo(function(json) {
-			obj = json.Similar.Results[0].Name;
-			console.log(obj);
-			search(obj);
+			var i = 0;
+			while (i<3) {
+				obj = json.Similar.Results[i].Name;
+				console.log(obj);
+				search(obj);
+				i++;
+			}
+			
 		});
 		// console.log('testing scope: ' + obj);
 		// search(queryterm);
