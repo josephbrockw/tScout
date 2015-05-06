@@ -4,7 +4,7 @@ $(document).ready(function(){
 
 // Taste Kid
 	function getInfo(callback) {
-		$.getJSON('http://www.tastekid.com/api/similar?q=' + queryterm +'&k=133714-TalentSc-0C3QNV7I&callback=?', callback);
+		$.getJSON('http://www.tastekid.com/api/similar?q=' + queryterm +'&type=music&k=133714-TalentSc-0C3QNV7I&callback=?', callback);
 	}
 	
 	// function getInfo(json) {
@@ -51,11 +51,12 @@ $(document).ready(function(){
 		//search($('#query').val()); // new function which searches every suggestion individually
 		console.log('queryterm: ' + queryterm);
 		getInfo(function(json) {
-			obj = json.Similar.Results[3].Name;
+			obj = json.Similar.Results[0].Name;
 			console.log(obj);
+			search(obj);
 		});
-		console.log('testing scope: ' + obj);
-		search(queryterm);
+		// console.log('testing scope: ' + obj);
+		// search(queryterm);
 	});
 	
 
