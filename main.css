@@ -1,0 +1,90 @@
+body {
+	background-color: #ff5a09;
+}
+
+.results, nav {
+	background-color: #393939;
+	color: white;
+}
+
+/* -------- Header ---------*/
+
+header {
+	height: auto;
+}
+
+header h1, h2 {
+	text-align: center;
+}
+
+h1 {
+	padding: .5em;
+	margin: 5% auto 1.5%;
+	font-size: 2.5em;
+	font-weight: 700;
+}
+
+h2 {
+	margin: 0 auto 5%;
+	font-size: 1.75em;
+}
+
+/* -------- Navigator ---------*/
+
+nav {
+	width: 100%;
+}
+ul {
+	width: 50%;
+	margin: 0 25%;
+	text-align: center;
+}
+
+li {
+	display: inline-block;
+	padding: .5em;
+	margin: 1em 1em;
+}
+
+a {	
+	text-decoration: none;
+	color: white;
+	font-weight: 500;
+	font-size: 1.25em;
+}
+
+/* -------- App Sections ---------*/
+
+.content-section {
+	width: 80%;
+	margin: 2em 10%;
+}
+
+.results {
+	padding: 1.5em;
+	margin: 1em;
+	display: none;
+}
+
+.results > * {
+	text-align: center;
+	padding: .5em;
+}
+
+h3 {
+	font-size: 1.5em;
+}
+
+#query {
+	width: 80%;
+	font-size: 1.25em;
+}
+
+#submit {
+	font-size: 1.25em;
+}
+
+/*.results-section {
+	display: none;
+}*/
+
