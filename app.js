@@ -40,6 +40,8 @@ $(document).ready(function(){
 		$.each(videos, function(index, video) {
 			console.log(video.snippet.thumbnails.medium.url);
 			$('#search-list').append('<li><a href="http://youtube.com/watch?v='+video.id.videoId+'" target="_blank"><img src="' + video.snippet.thumbnails.medium.url + '" /></a><br><p>' + video.snippet.title + '</p></li>');
+			
+
 		});
 	}
 
@@ -55,6 +57,7 @@ $(document).ready(function(){
 			while (i<3) {
 				obj = json.Similar.Results[i].Name;
 				console.log(obj);
+				$('.artist-sec p').append(obj);
 				search(obj);
 				i++;
 			}
@@ -65,38 +68,9 @@ $(document).ready(function(){
 	});
 	
 
+	//Video Player Work
+
 	
 
 });
 
-// Sound Cloud
-	// function playSound(genre) {
-	// 	SC.get('/tracks', {
-	// 		genres: genre,
-	// 	}, function(tracks) {
-	// 		SC.oEmbed(tracks[0].uri, { auto_play: true}, document.getElementByID('one'));
-	// 	}
-	// 	})
-	// }
-// --------------------- This is initializing well but I don't know how to call information ------------------------------------------------------------------------------------------------
-	// window.onload = function() {
-	// 	SC.initialize({
-	// 		client_id: 'a700e44fe62f56e3f24d08da98104f08'
-	// 	});
-
-	// 	// SC.get()
-
-	
-		
-	// 	SC.get("/groups/55517/tracks", {limit: 1}, function(tracks){
-	// 	  alert("Latest track: " + tracks[0].title);
-	// 	});
-	// }
-
-
-
-// TasteKid API key: 133714-TalentSc-0C3QNV7I
-// Soundcloud Client ID: b4fcb23aad971c96104aef3d3abe6ed1
-// SC.stream("/tracks/293", function(sound){
-//   sound.play();
-// });
